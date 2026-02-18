@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from MyInventoryApp.models import Supplier
+from datetime import datetime
 
 
 def main():
@@ -18,5 +20,43 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+
+
 if __name__ == '__main__':
     main()
+
+
+Supplier.objects.create(
+    name="Meister, Inc.",
+    city="Dresden",
+    country="Germany",
+    created_at=datetime.strptime("01/20/2019 08:20AM", "%m/%d/%Y %I:%M%p")
+)
+
+
+Supplier.objects.create(
+    name="Sailfish, Inc.",
+    city="Racoon City",
+    country="Canada",
+    created_at=datetime.strptime("03/14/2019 08:21AM", "%m/%d/%Y %I:%M%p")
+)
+
+
+Supplier.objects.create(
+    name="Bucky, Inc.",
+    city="California",
+    country="USA",
+    created_at=datetime.strptime("12/01/2018 08:22AM", "%m/%d/%Y %I:%M%p")
+)
+
+
+#Ray's supplier choice
+Supplier.objects.create(
+    name="Nestlé Waters, Inc.",
+    city="Stamford",
+    country="USA",
+    created_at=datetime.strptime("04/10/2020 09:30AM", "%m/%d/%Y %I:%M%p")
+)
+
+
+
