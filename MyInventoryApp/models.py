@@ -6,7 +6,7 @@ class Supplier(models.Model):
     city = models.CharField(max_length=300)
     country = models.CharField(max_length=300)
     created_at = models.DateTimeField(blank=True, null=True)
-    onjects = models.manager()
+    onjects = models.Manager()
 
     def getName(self):
         return self.name
@@ -14,7 +14,7 @@ class Supplier(models.Model):
     def __str__(self):
         return self.name + ' - ' + self.city + ', ' + self.country + ' created at: ' + str(self.created_at)
     
-class WaterBottle(models.model):
+class WaterBottle(models.Model):
     sku = models.CharField(max_length=300)
     brand = models.CharField(max_length=300)
     cost = models.DecimalField(max_digits=20, decimal_places=2)
@@ -26,6 +26,6 @@ class WaterBottle(models.model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.sku + ': ' + self.brand + ', ' + self.mouth_size + ', ' + self.size + ', ' + self.color + ', supplied by ' + str(self.supplier_name) + ', ' + str(self.cost) + ':' + str(self.current_quantity)
+        return self.sku + ': ' + self.brand + ', ' + self.mouth_size + ', ' + self.size + ', ' + self.color + ', supplied by ' + str(self.supplied_by) + ', ' + str(self.cost) + ':' + str(self.current_quantity)
 
 
